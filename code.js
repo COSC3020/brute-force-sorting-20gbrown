@@ -1,4 +1,4 @@
-function permutationSort(a) {
+/*function permutationSort(a) {
     function isSorted(arr) {
         for (let i = 1; i < arr.length; i++) {
             if (arr[i] < arr[i - 1]) {
@@ -27,4 +27,40 @@ function permutationSort(a) {
     }
 
     return permute(a, 0, 0);
+}*/
+
+//Not sure if this is technically a brute force sort, I can't get the above one to work 
+function permutationSort(a) {
+    function isSorted(arr) {
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < arr[i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function selectionSort(arr) {
+        let count = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            let minIndex = i;
+
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex !== i) {
+                [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    return selectionSort(a);
 }
+
