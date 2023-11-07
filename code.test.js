@@ -11,5 +11,6 @@ const test = jsc.forall("array nat", function(arr) {
 });
 
 jsc.assert(test, { tests: 1000 }); // You can specify the number of tests you want to run
+//Used ChatGPT to help edit the test cases
 
 
